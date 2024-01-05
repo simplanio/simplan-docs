@@ -1,0 +1,127 @@
+site_name: Simplan - Documentation
+repo_url: https://github.com/simplanio/simplan-docs
+edit_uri: edit/main/docs/
+theme: # readthedocs
+  features:
+    - content.code.annotate
+    - content.code.copy
+    - content.action.edit
+    - content.action.view
+    - navigation.sections
+    - navigation.tabs
+    - navigation.tabs.sticky
+  name: material
+  logo: img/SimplanLogo.png
+  favicon: img/favicon-96x96.png
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+    # Light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue
+      accent: green
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    # Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue
+      accent: light blue
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+extra_css:
+  - stylesheets/extra.css
+
+markdown_extensions:
+  - admonition
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+nav:
+  - 'Home':
+    - 'Overview': index.md
+    - 'Implementations':
+      - 'Data Processing': 
+        - Overview: overview/implementations/dataprocessing/data-processing.md
+        - Spark: overview/implementations/dataprocessing/spark.md
+        - Flink: overview/implementations/dataprocessing/flink.md
+        - Presto: overview/implementations/dataprocessing/presto.md
+      - Orchestration:
+        - Overview: overview/implementations/orchestration/orchestration.md
+      - Console: overview/implementations/console.md
+  - 'Getting Started': overview/GettingStarted.md
+
+  - 'Framework':
+    - Overview: framework/index.md
+    - Tasks: framework/concepts/Tasks.md
+    - Operators: framework/concepts/Operators.md
+    - 'Task Ordering': framework/concepts/TaskOrdering.md
+    - 'Logging and Monitoring':
+      - Overview: logging_and_monitoring/index.md
+      - 'Logging': logging_and_monitoring/logging.md
+      - 'Monitoring': logging_and_monitoring/monitoring.md
+  - 'Spark':
+    - Simplan For Spark: implementations/spark/index.md
+    - 'Getting Started':
+        - 'Local Setup': implementations/spark/GettingStarted.md
+        - 'Batch Processing Platform':
+            - 'Getting Started': implementations/spark/integrations/bpp/GettingStarted.md
+            - 'Custom Processor': implementations/spark/integrations/bpp/BppCustomProcessor.md
+            - 'Shared Processor': implementations/spark/integrations/bpp/BppSharedProcessor.md
+            - 'Sql Script': implementations/spark/integrations/bpp/BPPSharedScriptProcessor.md
+        - 'Superglue':
+            - 'Superglue Launcher': implementations/spark/integrations/superglue/SuperglueLauncher.md
+    - 'Contribution Guide': implementations/spark/ContributionGuide.md
+    - System Configurations:
+      - 'Spark Properties': implementations/spark/system_configurations/spark_properties.md
+    - Operators:
+      - 'Build Your Own' : implementations/spark/operators/BuildYourOperator.md
+      - Sources/Sinks:
+        - Batch Sources: implementations/spark/operators/spark/sources/BatchSource.md
+        - Batch Sinks: implementations/spark/operators/spark/sources/BatchSink.md
+        - Stream Sources:
+          - Socket Streaming Source: implementations/spark/operators/spark/sources/stream/SocketStreamingSource.md
+          - Kafka Streaming Source: implementations/spark/operators/spark/sources/stream/KafkaStreamingSource.md
+          - File Streaming Source: implementations/spark/operators/spark/sources/stream/FileStreamingSource.md
+        - Delta Table: implementations/spark/operators/spark/sources/DeltaTableSource.md
+      - Sinks:
+        - Batch Sinks:
+          - CSV Sink: implementations/spark/operators/spark/sinks/batch/CSVBatchSink.md
+          - JSON Sink: implementations/spark/operators/spark/sinks/batch/JsonBatchSink.md
+          - AVRO Sink: implementations/spark/operators/spark/sinks/batch/AvroBatchSink.md
+          - Parquet Sink: implementations/spark/operators/spark/sinks/batch/ParquetBatchSink.md
+          - Kafka Sink: implementations/spark/operators/spark/sinks/batch/KafkaBatchSink.md
+        - Stream Sinks:
+          - Socket Sink: implementations/spark/operators/spark/sinks/stream/SocketStreamWriter.md
+          - Kafka Sink: implementations/spark/operators/spark/sinks/stream/KafkaStreamSink.md
+      - Transformations:
+        - Spark SQL: implementations/spark/operators/spark/transformations/SparkSql.md
+        - Filtering: implementations/spark/operators/spark/transformations/Filtering.md
+        - Projection: implementations/spark/operators/spark/transformations/Projections.md
+        - Delta Merge Operator: implementations/spark/operators/spark/transformations/DeltaTableMerge.md
+    - Qualified Params:
+      - Schema Param: implementations/spark/qualified_param/schema_qualified_param.md
+  - Flink:
+    - Overview: implementations/flink/index.md
+    - Operators:
+      - 'Build Your Own': operators/BuildYourOperator.md
+      - Sources:
+          - Stream Sources:
+              - Kafka: operators/flink/sources/stream/KafkaStreamingSource.md
+      - Sinks:
+          - Stream Sinks:
+              - Kafka: operators/flink/sinks/stream/KafkaStreamSink.md
+      - Transformations:
+          - Flink SQL: operators/flink/transformations/SparkSql.md
+          - Filtering: operators/flink/transformations/Filtering.md
+          - Projection: operators/flink/transformations/Projections.md
+          - 'Hybrid Source': operators/flink/transformations/HybridSource.md
+  - 'Release Notes': GettingStarted.md
+    
